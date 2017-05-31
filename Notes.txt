@@ -1,0 +1,5 @@
+1)First start local server(write python manage.py runserver 3000 command in terminal )
+2)you get list of urls on localhost:3000
+3)select second url (http://localhost:3000/StringForm/)
+4)Write sentences in input textbox. 
+5)Click on submit button.
