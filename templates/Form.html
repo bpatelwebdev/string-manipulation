@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Retry</title>
+</head>
+<body>
+<form action="{% url 'StringLogic' %}" method="post">
+    {% csrf_token %}
+<p>Enter your string/paragraph below.</p>
+<p>(If needed drag textbox from righ bottom to enlarge it)</p>
+    <p>{{ message }}</p>
+    <textarea name="InputString" required="required" >{{ InputString }}</textarea>
+<p><input type="submit" value="Submit"></p>
+</form>
+</body>
+</html>
