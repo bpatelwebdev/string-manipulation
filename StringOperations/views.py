@@ -5,7 +5,7 @@ import operator
 def StringOperation(request):
     return TemplateResponse(request, 'Form.html', {})
 
-def Function_to_count(str, List_1, Result = []):
+def Function_to_count(str, List_1 = [], Result = []):
     '''this function counts the repeated occurance of words/characters passed through List_1'''
     Dict_1 = {}  # creating an empty dictionart
     # convert list to set to eliminate duplicates
@@ -24,16 +24,15 @@ def Function_to_count(str, List_1, Result = []):
 
     for i in range(0,5):
         Result.append(SortedValues[i][0])
-
+    del(List_1)
     return(Result)
 
 def StringLogic(request):
-    String_0 = request.POST['InputString']
-    String_1 = String_0.encode('utf8')
+    String_1 = request.POST['InputString']
     if len(String_1.split()) < 5:
         return TemplateResponse(request, 'Form.html', {'message': "Enter More Words", 'InputString': String_1})
-    words = Function_to_count('words',list(String_1.split(" ")))
-    characters = Function_to_count('characters',[i for i in list(String_1) if i != ' '])
-    return TemplateResponse(request, 'ResultForm.html', {'words': words, 'characters':characters})
+    Words = Function_to_count('words', list(String_1.split(" ")))
+    Characters = Function_to_count('characters',[i for i in list(String_1) if i != ' '])
+    return TemplateResponse(request, 'ResultForm.html', {'words': Words, 'characters':Characters})
 
 
